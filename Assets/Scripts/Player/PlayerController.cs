@@ -1,4 +1,6 @@
-﻿using Tile;
+﻿using System;
+using DTO;
+using Tile;
 using UnityEngine;
 
 namespace Player
@@ -6,26 +8,71 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _body;
-        [SerializeField] private float _speed = 1;
     
         [SerializeField] private float _drillRadius = 1;
         [SerializeField] private float _drillOffset = 1;
 
         [SerializeField] private LayerMask _tileLayer;
+
+        public ParticleSystem DrillBit;
     
         private Vector2 DrillPoint => transform.position - transform.up * _drillOffset;
-    
-        private float _movementRotation;
-        private bool _throttle;
+        
+        public event Action OnPaused = () => {};
+        public event Action OnResumed = () => {};
 
+        private float _movementRotation;
+        private bool _moving;
+        
         private Collider2D[] _hits;
 
+        private Animator _animator;
         public Drill Drill;
+
+        private float _drillParticlesCount;
         
+        public void ResetPlayer()
+        {
+            Drill = Drill.GetDrill(PlayerDatabase.Info.DrillIdentifier);
+            Drill.Health = Drill.TotalHealth;
+        }
+
+        private void OnEnable()
+        {
+            switch (PlayerDatabase.Info.DrillIdentifier)
+            {
+                case 0:
+                    _animator.Play("Stone", 0);
+                    break;
+                case 1:
+                    _animator.Play("Iron", 0);
+                    break;
+                case 2:
+                    _animator.Play("Gold", 0);
+                    break;
+            }
+        }
+
         private void HandleInput()
         {
+            if(Input.GetKeyDown(KeyCode.Escape))
+                GameController.Instance.SetGameState(GameController.GameState.Menu);
+            
             _movementRotation = Input.GetAxisRaw("Horizontal");
-            _throttle = Input.GetKey(KeyCode.Space);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (_moving)
+                {
+                    _moving = false;
+                    OnPaused?.Invoke();
+                }
+                else
+                {
+                    _moving = true;
+                    OnResumed?.Invoke();
+                }
+            }
         }
 
         private void HandleCollisions()
@@ -39,6 +86,14 @@ namespace Player
 
             for (int i = 0; i < hits; i++)
             {
+                _drillParticlesCount += 0.1f;
+                
+                if (_drillParticlesCount >= 1f)
+                {
+                    DrillBit.Emit(Mathf.FloorToInt(1));
+                    _drillParticlesCount = 0;
+                }
+                
                 if (_hits[i].GetComponent<BreakableTile>().Damage(Drill.Strength))
                 {
                     Drill.Health--;
@@ -46,15 +101,16 @@ namespace Player
             }
         }
 
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
         private void Start()
         {
             _hits = new Collider2D[9];
-            Drill = new Drill
-            {
-                TotalHealth = 50,
-                Health = 50,
-                Strength = 5
-            };
+            
+            ResetPlayer();
         }
 
         private void Update()
@@ -64,10 +120,10 @@ namespace Player
             HandleInput();
             HandleCollisions();
 
-            transform.Rotate(Vector3.forward, _movementRotation);
+            transform.Rotate(Vector3.forward, _movementRotation * 0.5f);
         
-            if (_throttle)
-                _body.velocity = -transform.up * _speed;
+            if (_moving)
+                _body.velocity = -transform.up * Drill.Speed;
             else
                 _body.velocity = Vector2.zero;
         

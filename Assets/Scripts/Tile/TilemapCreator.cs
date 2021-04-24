@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Tile
 {
@@ -12,6 +14,8 @@ namespace Tile
     
     public class TilemapCreator : MonoBehaviour
     {
+        public static TilemapCreator Instance { get; set; }
+        
         public Bounds Bounds;
 
         public List<WeightedTile> Tiles;
@@ -45,27 +49,44 @@ namespace Tile
 
             return total;
         }
+
+        private void DeleteTiles()
+        {
+            Transform t = transform; 
+            int count = t.childCount;
+            
+            for (int i = 0; i < count; i++)
+            {
+                Destroy(t.GetChild(i).gameObject);
+            }
+        }
         
         [ContextMenu("Create")]
-        private void Create()
+        public void Create()
         {
+            DeleteTiles();
+            
             int stepsX = (int) (Bounds.extents.x * 2 / TileSize);
             int stepsY = (int) (Bounds.extents.y * 2 / TileSize);
             Vector2 initialPos = transform.position;
 
             Vector2 firstPosition = initialPos + Vector2.left * Bounds.extents.x + Vector2.up * Bounds.extents.y;
-            Vector2 currentPos = firstPosition;
-            
+
             for (int x = 0; x < stepsX; x++)
             {
                 for (int y = 0; y < stepsY; y++)
                 {
-                    currentPos = firstPosition + Vector2.right * TileSize * x 
-                                               + Vector2.down * TileSize * y;
+                    var currentPos = firstPosition + Vector2.right * (TileSize * x) 
+                                                   + Vector2.down * (TileSize * y);
 
                     Instantiate(GetTile(GetTotalWeight()).Prefab, currentPos, Quaternion.identity, transform);
                 }
             }
+        }
+
+        private void Awake()
+        {
+            Instance = this;
         }
 
         private void Start()

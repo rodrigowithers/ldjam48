@@ -4,22 +4,58 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -8270339843752218945
-    second: Player Sheet_0
+    second: Stone_0
   - first:
       213: 4815171007139313904
-    second: Player Sheet_1
+    second: Stone_1
   - first:
       213: 1561258753753902437
-    second: Player Sheet_2
+    second: Stone_2
   - first:
       213: -8990806273777168792
-    second: Player Sheet_3
+    second: Stone_3
   - first:
       213: 1215164291529878683
-    second: Player Sheet_4
+    second: Stone_4
   - first:
       213: 1358719349431656541
-    second: Player Sheet_5
+    second: Stone_5
+  - first:
+      213: 964662848923484849
+    second: Iron_0
+  - first:
+      213: -3365842967781383369
+    second: Gold_0
+  - first:
+      213: 7075837016667834539
+    second: Iron_1
+  - first:
+      213: -2251315489858794773
+    second: Iron_2
+  - first:
+      213: 2876474070906873366
+    second: Iron_3
+  - first:
+      213: 648336260551306226
+    second: Iron_4
+  - first:
+      213: -7349244143608022207
+    second: Iron_5
+  - first:
+      213: -7798547189959766079
+    second: Gold_1
+  - first:
+      213: 1045828440347690804
+    second: Gold_2
+  - first:
+      213: 7794952334710374940
+    second: Gold_3
+  - first:
+      213: -7808295502611954107
+    second: Gold_4
+  - first:
+      213: 3721394089493031286
+    second: Gold_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,11 +141,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Sheet_0
+      name: Stone_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 64
         width: 32
         height: 32
       alignment: 9
@@ -126,11 +162,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Sheet_1
+      name: Stone_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 64
         width: 32
         height: 32
       alignment: 9
@@ -147,11 +183,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Sheet_2
+      name: Stone_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 64
         width: 32
         height: 32
       alignment: 9
@@ -168,11 +204,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Sheet_3
+      name: Stone_3
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 64
         width: 32
         height: 32
       alignment: 9
@@ -189,11 +225,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Sheet_4
+      name: Stone_4
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 64
         width: 32
         height: 32
       alignment: 9
@@ -210,7 +246,259 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Sheet_5
+      name: Stone_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50e25cac042bd210800000000000000
+      internalID: 1358719349431656541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Iron_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2c91600cb236d00800000000000000
+      internalID: 964662848923484849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733e4af57af1a41d0800000000000000
+      internalID: -3365842967781383369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Iron_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8cb0bf64c623260800000000000000
+      internalID: 7075837016667834539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Iron_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beac1ad6d78b1c0e0800000000000000
+      internalID: -2251315489858794773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Iron_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616a6026de94be720800000000000000
+      internalID: 2876474070906873366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Iron_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb6a29d46a5ff800800000000000000
+      internalID: 648336260551306226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Iron_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14bbf9ca36d320a90800000000000000
+      internalID: -7349244143608022207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cfc35236aef5c390800000000000000
+      internalID: -7798547189959766079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437cceaec67838e00800000000000000
+      internalID: 1045828440347690804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c12838759db3d2c60800000000000000
+      internalID: 7794952334710374940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546c8894c9c53a390800000000000000
+      internalID: -7808295502611954107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold_5
       rect:
         serializedVersion: 2
         x: 160
@@ -224,8 +512,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d50e25cac042bd210800000000000000
-      internalID: 1358719349431656541
+      spriteID: 6796875253c05a330800000000000000
+      internalID: 3721394089493031286
       vertices: []
       indices: 
       edges: []

@@ -10,6 +10,8 @@ namespace Camera
         
         private void LateUpdate()
         {
+            if (!Target) return;
+            
             _position = Target.position;
             _position.x = 0;
             

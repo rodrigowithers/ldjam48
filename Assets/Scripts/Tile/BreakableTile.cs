@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Tile
 {
@@ -7,6 +6,7 @@ namespace Tile
     {
         public ParticleSystem BreakingParticles;
         public float Durability = 3f;
+        public int Hardness = 1;
 
         protected virtual void OnBreak()
         {
@@ -16,6 +16,9 @@ namespace Tile
         
         public bool Damage(float dmg = 1)
         {
+            if (dmg < Hardness)
+                return false;
+            
             Durability -= Time.deltaTime * dmg;
             BreakingParticles.Emit(1);
             

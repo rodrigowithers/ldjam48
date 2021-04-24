@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b1205321a3c6048a51219e69146249, type: 3}
+  m_Name: Shop 01
+  m_EditorClassIdentifier: 
+  ShopItems:
+  - Id: 1
+    StonePrice: 50
+    IronPrice: 20
+    GoldPrice: 0
+    Sprite: {fileID: 2791732573773347601, guid: f736db3db361239438c9c0470ea3fd46,
+      type: 3}
+  - Id: 2
+    StonePrice: 100
+    IronPrice: 25
+    GoldPrice: 20
+    Sprite: {fileID: -209263213857107954, guid: f736db3db361239438c9c0470ea3fd46,
+      type: 3}
