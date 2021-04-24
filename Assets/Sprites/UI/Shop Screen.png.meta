@@ -4,16 +4,22 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7525712460285294926
-    second: Shop Screen_0
+    second: Button_0
   - first:
       213: -331933353241884624
-    second: Shop Screen_1
+    second: Button_1
   - first:
       213: -3633934334599625951
-    second: Shop Screen_2
+    second: Title
   - first:
       213: 610963323786582927
-    second: Shop Screen_6
+    second: BG
+  - first:
+      213: 2792522310805491912
+    second: Play_0
+  - first:
+      213: -8794216961793978969
+    second: Play_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shop Screen_0
+      name: Button_0
       rect:
         serializedVersion: 2
         x: 50
@@ -107,7 +113,7 @@ TextureImporter:
         width: 30
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -120,7 +126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shop Screen_1
+      name: Button_1
       rect:
         serializedVersion: 2
         x: 81
@@ -128,7 +134,7 @@ TextureImporter:
         width: 30
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,7 +147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shop Screen_2
+      name: Title
       rect:
         serializedVersion: 2
         x: 144
@@ -149,7 +155,7 @@ TextureImporter:
         width: 35
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,7 +168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shop Screen_6
+      name: BG
       rect:
         serializedVersion: 2
         x: 32
@@ -170,7 +176,7 @@ TextureImporter:
         width: 256
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,6 +184,48 @@ TextureImporter:
       bones: []
       spriteID: f8b571de7e39a7800800000000000000
       internalID: 610963323786582927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 148
+        width: 48
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c01aea0f3801c620800000000000000
+      internalID: 2792522310805491912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Play_1
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 148
+        width: 48
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad0e8a544aa4f580800000000000000
+      internalID: -8794216961793978969
       vertices: []
       indices: 
       edges: []
