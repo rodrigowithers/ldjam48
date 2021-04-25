@@ -7,6 +7,8 @@ namespace UI.PlayPauseVisualizer
     {
         public PlayerController PlayerController;
         private Animator _animator;
+
+        private int _state;
         
         /// <summary>
         /// 0 - Paused
@@ -14,10 +16,19 @@ namespace UI.PlayPauseVisualizer
         /// </summary>
         public void ChangeState(int state)
         {
-            if(state == 0) _animator.Play("PlayingToPaused", 0);
-            if(state == 1) _animator.Play("PausedToPlaying", 0);
+            if(state == 0)
+            {
+                _animator.Play("PlayingToPaused", 0);
+                _state = 0;
+            }
+            
+            if(state == 1)
+            {
+                _animator.Play("PausedToPlaying", 0);
+                _state = 1;
+            }
         }
-
+        
         private void Awake()
         {
             _animator = GetComponent<Animator>();

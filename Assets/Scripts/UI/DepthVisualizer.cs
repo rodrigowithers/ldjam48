@@ -8,7 +8,7 @@ namespace UI
         public Transform Player;
         public RectTransform Caret;
 
-        private const int Size = 440;
+        private const int Size = 76;
 
         private void Update()
         {

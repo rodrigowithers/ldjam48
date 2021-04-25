@@ -1,6 +1,6 @@
-﻿using System;
-using DTO;
+﻿using DTO;
 using Tile;
+using System;
 using UnityEngine;
 
 namespace Player
@@ -58,7 +58,7 @@ namespace Player
             if(Input.GetKeyDown(KeyCode.Escape))
                 GameController.Instance.SetGameState(GameController.GameState.Menu);
             
-            _movementRotation = Input.GetAxisRaw("Horizontal");
+            //_movementRotation = Input.GetAxisRaw("Horizontal");
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -116,6 +116,7 @@ namespace Player
         private void Update()
         {
             Shader.SetGlobalVector("_PlayerPosition", transform.position);
+            Shader.SetGlobalFloat("_Radius", Mathf.Lerp(20, 3, Mathf.InverseLerp(7, -20, transform.position.y)));
             
             HandleInput();
             HandleCollisions();

@@ -19,6 +19,9 @@ namespace UI
                 case 1:
                     Amount.text = ResourceStorage.Iron.ToString();
                     break;
+                case 2:
+                    Amount.text = ResourceStorage.Gold.ToString();
+                    break;
             }
         }
     }
