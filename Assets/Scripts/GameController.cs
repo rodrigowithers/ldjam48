@@ -61,9 +61,7 @@ public class GameController : MonoBehaviour
                 CameraController.Target = null;
                 
                 CanvasController.MenuPanel.SetActive(true);
-                
                 CanvasController.ShopPanel.SetActive(false);
-                CanvasController.HUDPanel.SetActive(false);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);

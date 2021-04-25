@@ -10,8 +10,16 @@ namespace Tile
     public class WeightedTile
     {
         public GameObject Prefab;
-        public float Weight = 1;
-        public float Offset = 0;
+        [Range(0f, 1f)] public float Weight = 1;
+    }
+    
+    [Serializable]
+    public class DepthLayer
+    {
+        public string Name;
+        public List<WeightedTile> Tiles;
+        [Range(0f, 1f)] public float MinDepth;
+        [Range(0f, 1f)] public float MaxDepth;
     }
 
     public class TilemapCreator : MonoBehaviour
@@ -23,12 +31,45 @@ namespace Tile
         public List<WeightedTile> Tiles;
         private float TileSize => 0.5f;
 
+        public List<DepthLayer> Layers;
+            
         private WeightedTile GetTile(float totalWeight)
         {
             float random = Random.Range(0f, totalWeight);
             WeightedTile selected = null;
 
             foreach (WeightedTile tile in Tiles)
+            {
+                if (random <= tile.Weight)
+                {
+                    selected = tile;
+                    break;
+                }
+
+                random -= tile.Weight;
+            }
+
+            return selected;
+        }
+        
+        private WeightedTile GetTileDepth(float depth)
+        {
+            float totalWeight = 0;
+            List<WeightedTile> possibleTiles = new List<WeightedTile>();
+
+            foreach (DepthLayer layer in Layers)
+            {
+                if(depth >= layer.MinDepth && depth < layer.MaxDepth)
+                    possibleTiles.AddRange(layer.Tiles);
+            }
+
+            foreach (WeightedTile possibleTile in possibleTiles)
+                totalWeight += possibleTile.Weight;
+            
+            float random = Random.Range(0f, totalWeight);
+
+            WeightedTile selected = null;
+            foreach (WeightedTile tile in possibleTiles)
             {
                 if (random <= tile.Weight)
                 {
@@ -101,7 +142,10 @@ namespace Tile
                     var currentPos = firstPosition + Vector2.right * (TileSize * x)
                                                    + Vector2.down * (TileSize * y);
 
-                    Instantiate(GetTile(weight * depth).Prefab, currentPos, Quaternion.identity, transform);
+                    var tile = GetTileDepth(depth);
+                    
+                    if(tile.Prefab != null)
+                        Instantiate(tile.Prefab, currentPos, Quaternion.identity, transform);
                 }
             }
         }

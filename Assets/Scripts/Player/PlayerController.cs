@@ -7,8 +7,11 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
+        [Header("Required Components")]
         [SerializeField] private Rigidbody2D _body;
-    
+
+        [Header("Configuration")] 
+        [SerializeField, Range(0, 90)] private float MaxTurningAngle = 60;
         [SerializeField] private float _drillRadius = 1;
         [SerializeField] private float _drillOffset = 1;
 
@@ -30,6 +33,9 @@ namespace Player
         public Drill Drill;
 
         private float _drillParticlesCount;
+        private float _turningAngle;
+
+        private Vector2 _velocity;
         
         public void ResetPlayer()
         {
@@ -93,7 +99,7 @@ namespace Player
 
         private void HandleCollisions()
         {
-            if (Drill.Health <= 0)
+            if (Drill.Health <= 0 || !_moving)
                 return;
             
             DebugExtension.DebugCircle(DrillPoint, Vector3.forward, Color.red, _drillRadius);
@@ -117,6 +123,21 @@ namespace Player
             }
         }
 
+        private void StopAnimation()
+        {
+            _animator.speed = 0;
+        }
+        
+        private void ResumeAnimation()
+        {
+            _animator.speed = 1;
+        }
+
+        private void RecoilMovement()
+        {
+            _body.velocity = -_body.velocity * 1.5f;
+        }
+        
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -127,6 +148,11 @@ namespace Player
             _hits = new Collider2D[9];
             
             ResetPlayer();
+
+            OnPaused += StopAnimation;
+            OnPaused += RecoilMovement;
+            
+            OnResumed += ResumeAnimation;
         }
 
         private void Update()
@@ -137,14 +163,15 @@ namespace Player
             HandleInput();
             HandleCollisions();
 
-            transform.Rotate(Vector3.forward, _movementRotation * 0.5f);
-        
+            _turningAngle = Mathf.Clamp(_turningAngle + _movementRotation, -MaxTurningAngle, MaxTurningAngle);                
+            transform.rotation = Quaternion.Euler(0,0,_turningAngle);
+
             if (_moving)
-                _body.velocity = -transform.up * Drill.Speed;
+                _body.velocity = Vector2.MoveTowards(_body.velocity, -transform.up * Drill.Speed, 0.2f);
             else
-                _body.velocity = Vector2.zero;
+                _body.velocity = Vector2.MoveTowards(_body.velocity, Vector2.zero, 0.1f);
         
-            DebugExtension.DebugArrow(transform.position, -transform.up, Color.red);
+            DebugExtension.DebugArrow(transform.position, _body.velocity, Color.red);
         }
     }
 }
