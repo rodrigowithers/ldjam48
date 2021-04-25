@@ -1,0 +1,20 @@
+[
+  {
+    "TotalHealth": 50,
+    "Health": 50,
+    "Strength": 4.0,
+    "Speed": 1.0
+  },
+  {
+    "TotalHealth": 150,
+    "Health": 150,
+    "Strength": 7.0,
+    "Speed": 2.0
+  },
+  {
+    "TotalHealth": 250,
+    "Health": 250,
+    "Strength": 7.0,
+    "Speed": 3.0
+  }
+]

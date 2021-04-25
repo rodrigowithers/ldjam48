@@ -8,7 +8,7 @@ namespace DTO
 {
     public static class DrillDatabase
     {
-        private static readonly string SavePath = Path.Combine(Application.persistentDataPath, "drills.json");
+        private static readonly string SavePath = Path.Combine(Application.dataPath, "drills.json");
 
         public static List<Drill> Drills;
 
@@ -17,9 +17,9 @@ namespace DTO
             // Write new list of drills to use in game
             Drills = new List<Drill>
             {
-                new Drill(50, 3, 1),
-                new Drill(80, 5, 2),
-                new Drill(40, 8, 3),
+                new Drill(50, 5, 1),
+                new Drill(120, 7, 2),
+                new Drill(200, 9, 3),
             };
 
             var json = JsonConvert.SerializeObject(Drills, Formatting.Indented);

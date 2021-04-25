@@ -20,8 +20,8 @@ MonoBehaviour:
     Sprite: {fileID: 2791732573773347601, guid: f736db3db361239438c9c0470ea3fd46,
       type: 3}
   - Id: 2
-    StonePrice: 100
-    IronPrice: 25
+    StonePrice: 500
+    IronPrice: 100
     GoldPrice: 20
     Sprite: {fileID: -209263213857107954, guid: f736db3db361239438c9c0470ea3fd46,
       type: 3}

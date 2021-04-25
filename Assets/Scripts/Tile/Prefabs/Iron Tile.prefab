@@ -4866,5 +4866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac66a81f6415492e98c02fca8f01a2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 8385988162878918550}
   BreakingParticles: {fileID: 3113375614028948406}
   Durability: 6
+  Hardness: 4

@@ -7,6 +7,7 @@ namespace DTO
     public class PlayerInfo
     {
         public int DrillIdentifier;
+        public int DrillTier;
         
         public int StoneCount;
         public int IronCount;
@@ -15,7 +16,7 @@ namespace DTO
     
     public static class PlayerDatabase
     {
-        private static readonly string SavePath = Path.Combine(Application.persistentDataPath, "player.json");
+        private static readonly string SavePath = Path.Combine(Application.dataPath, "player.json");
 
         public static PlayerInfo Info;
 

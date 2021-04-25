@@ -1,4 +1,6 @@
-﻿using Player;
+﻿using System;
+using DG.Tweening;
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +9,20 @@ namespace UI
     public class DrillHealthVisualizer : MonoBehaviour
     {
         public PlayerController Player;
+        
         public Image HealthImage;
         public Sprite[] HealthStages;   // 5
-        
+
+        private void Start()
+        {
+            Player.OnDrillDamage += PlayerOnOnDrillDamage;
+        }
+
+        private void PlayerOnOnDrillDamage()
+        {
+            transform.DOShakePosition(0.25f, 1f, 50);
+        }
+
         public void Update()
         {
             // 0 -> 1

@@ -1,7 +1,9 @@
 ﻿using DTO;
 using Tile;
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
+using Logger = UI.Logger;
 
 namespace Player
 {
@@ -23,9 +25,12 @@ namespace Player
         
         public event Action OnPaused = () => {};
         public event Action OnResumed = () => {};
+        public event Action OnDrillBroken = () => {};
+        public event Action OnDrillDamage = () => {};
 
         private float _movementRotation;
         private bool _moving;
+        private bool _broken;
         
         private Collider2D[] _hits;
 
@@ -40,7 +45,13 @@ namespace Player
         public void ResetPlayer()
         {
             Drill = Drill.GetDrill(PlayerDatabase.Info.DrillIdentifier);
-            Drill.Health = Drill.TotalHealth;
+            Drill.Tier = PlayerDatabase.Info.DrillTier;
+            Drill.SetHealth();
+
+            _turningAngle = 0;
+            _broken = false;
+            
+            StopAnimation();
         }
 
         private void OnEnable()
@@ -61,9 +72,6 @@ namespace Player
 
         private void HandleInput()
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
-                GameController.Instance.SetGameState(GameController.GameState.Menu);
-            
             _movementRotation = Input.GetAxisRaw("Horizontal");
 
             if (Input.GetKeyDown(KeyCode.W))
@@ -116,16 +124,17 @@ namespace Player
                     _drillParticlesCount = 0;
                 }
                 
-                if (_hits[i].GetComponent<BreakableTile>().Damage(Drill.Strength))
+                if (_hits[i].GetComponent<BreakableTile>().Damage(Drill.GetDamage(), Drill.Strength))
                 {
-                    Drill.Health--;
+                    OnDrillDamage.Invoke();
                 }
             }
         }
 
         private void StopAnimation()
         {
-            _animator.speed = 0;
+            if(_animator != null)
+                _animator.speed = 0;
         }
         
         private void ResumeAnimation()
@@ -136,6 +145,31 @@ namespace Player
         private void RecoilMovement()
         {
             _body.velocity = -_body.velocity * 1.5f;
+        }
+
+        private void OnDrillDamageListener()
+        {
+            Drill.Health--;
+
+            if (Drill.Health <= 0)
+            {
+                OnDrillBroken.Invoke();
+            }
+        }
+
+        private async void OnDrillBrokenListener()
+        {
+            Logger.Instance.Log("Your drill broke");
+
+            _moving = false;
+            _broken = true;
+            
+            StopAnimation();
+            RecoilMovement();
+
+            await Task.Delay(1000);
+            
+            GameController.Instance.SetGameState(GameController.GameState.Menu);
         }
         
         private void Awake()
@@ -153,6 +187,9 @@ namespace Player
             OnPaused += RecoilMovement;
             
             OnResumed += ResumeAnimation;
+
+            OnDrillBroken += OnDrillBrokenListener;
+            OnDrillDamage += OnDrillDamageListener;
         }
 
         private void Update()
@@ -160,10 +197,16 @@ namespace Player
             Shader.SetGlobalVector("_PlayerPosition", transform.position);
             Shader.SetGlobalFloat("_Radius", Mathf.Lerp(20, 3, Mathf.InverseLerp(7, -20, transform.position.y)));
             
-            HandleInput();
-            HandleCollisions();
+            if(Input.GetKeyDown(KeyCode.Escape))
+                GameController.Instance.SetGameState(GameController.GameState.Menu);
+            
+            if (!_broken)
+            {
+                HandleInput();
+                HandleCollisions();   
+            }
 
-            _turningAngle = Mathf.Clamp(_turningAngle + _movementRotation, -MaxTurningAngle, MaxTurningAngle);                
+            _turningAngle = Mathf.Clamp(_turningAngle + _movementRotation * 0.7f, -MaxTurningAngle, MaxTurningAngle);                
             transform.rotation = Quaternion.Euler(0,0,_turningAngle);
 
             if (_moving)
