@@ -3,6 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Radius ("Radius", Float) = 20
     }
     SubShader
     {

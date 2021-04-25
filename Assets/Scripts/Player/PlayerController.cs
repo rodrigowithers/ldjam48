@@ -58,8 +58,24 @@ namespace Player
             if(Input.GetKeyDown(KeyCode.Escape))
                 GameController.Instance.SetGameState(GameController.GameState.Menu);
             
-            //_movementRotation = Input.GetAxisRaw("Horizontal");
+            _movementRotation = Input.GetAxisRaw("Horizontal");
 
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                if(!_moving)
+                    OnResumed?.Invoke();
+                
+                _moving = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                if(_moving)
+                    OnPaused?.Invoke();
+
+                _moving = false;
+            }
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (_moving)
