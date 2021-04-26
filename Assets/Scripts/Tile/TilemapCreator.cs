@@ -28,30 +28,10 @@ namespace Tile
 
         public Bounds Bounds;
 
-        public List<WeightedTile> Tiles;
         private float TileSize => 0.5f;
 
         public List<DepthLayer> Layers;
             
-        private WeightedTile GetTile(float totalWeight)
-        {
-            float random = Random.Range(0f, totalWeight);
-            WeightedTile selected = null;
-
-            foreach (WeightedTile tile in Tiles)
-            {
-                if (random <= tile.Weight)
-                {
-                    selected = tile;
-                    break;
-                }
-
-                random -= tile.Weight;
-            }
-
-            return selected;
-        }
-        
         private WeightedTile GetTileDepth(float depth)
         {
             float totalWeight = 0;
@@ -83,17 +63,6 @@ namespace Tile
             return selected;
         }
 
-        private float GetTotalWeight()
-        {
-            float total = 0;
-
-            foreach (WeightedTile tile in Tiles)
-                total += tile.Weight;
-
-            return total;
-        }
-
-        
         [ContextMenu("Clear")]
         private void DeleteTiles()
         {
@@ -128,8 +97,6 @@ namespace Tile
             float iniY = initialPos.y + Bounds.extents.y;
             float finalY = initialPos.y - Bounds.extents.y;
 
-            float weight = GetTotalWeight();
-            
             Vector2 firstPosition = initialPos + Vector2.left * Bounds.extents.x + Vector2.up * Bounds.extents.y;
 
             for (int y = 0; y < stepsY; y++)

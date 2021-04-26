@@ -4869,4 +4869,4 @@ MonoBehaviour:
   _collider: {fileID: 8385988162878918550}
   BreakingParticles: {fileID: 3113375614028948406}
   Durability: 16
-  Hardness: 10
+  Hardness: 999

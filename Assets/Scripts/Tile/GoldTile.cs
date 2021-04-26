@@ -2,7 +2,7 @@
 
 namespace Tile
 {
-    public class GoldTile : StoneTile
+    public class GoldTile : BreakableTile
     {
         protected override void OnBreak()
         {

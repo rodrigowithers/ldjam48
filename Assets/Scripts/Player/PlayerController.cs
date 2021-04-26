@@ -196,8 +196,10 @@ namespace Player
 
         private void Update()
         {
+            AchievementSystem.AchievementHandler.SetAchievementCounter(6, (int) Mathf.Abs(transform.position.y));
+
             Shader.SetGlobalVector("_PlayerPosition", transform.position);
-            Shader.SetGlobalFloat("_Radius", Mathf.Lerp(20, 3, Mathf.InverseLerp(7, -20, transform.position.y)));
+            Shader.SetGlobalFloat("_Radius", Mathf.Lerp(20, 3, Mathf.InverseLerp(7, -40, transform.position.y)));
             
             if(Input.GetKeyDown(KeyCode.Escape))
                 GameController.Instance.SetGameState(GameController.GameState.Menu);

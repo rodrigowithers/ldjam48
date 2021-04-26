@@ -7248,22 +7248,6 @@ MonoBehaviour:
   Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 4, y: 40, z: 0}
-  Tiles:
-  - Prefab: {fileID: 8385988162878918545, guid: d498b49eb266d484b849ec6dd9faa557,
-      type: 3}
-    Weight: 0.8
-  - Prefab: {fileID: 8385988162878918545, guid: d498b49eb266d484b849ec6dd9faa557,
-      type: 3}
-    Weight: 0.4
-  - Prefab: {fileID: 8385988162878918545, guid: 8688ec44903f46e4486f98c777da026f,
-      type: 3}
-    Weight: 0.5
-  - Prefab: {fileID: 8385988162878918545, guid: 8498234a2c1132c489ee0feb157a3939,
-      type: 3}
-    Weight: 1
-  - Prefab: {fileID: 8385988162878918545, guid: c6ed4795ee735c847806094cc2448d8a,
-      type: 3}
-    Weight: 0.5
   Layers:
   - Name: Dirt Top
     Tiles:
@@ -7306,7 +7290,7 @@ MonoBehaviour:
     Tiles:
     - Prefab: {fileID: 8385988162878918545, guid: 8498234a2c1132c489ee0feb157a3939,
         type: 3}
-      Weight: 0.098
+      Weight: 0.146
     MinDepth: 0.015
     MaxDepth: 0.2
   - Name: Iron Mid
@@ -7327,7 +7311,7 @@ MonoBehaviour:
     Tiles:
     - Prefab: {fileID: 8385988162878918545, guid: c6ed4795ee735c847806094cc2448d8a,
         type: 3}
-      Weight: 0.005
+      Weight: 0.031
     MinDepth: 0.27
     MaxDepth: 0.95
   - Name: Gold Mid

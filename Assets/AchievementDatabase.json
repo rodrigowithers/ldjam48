@@ -54,6 +54,15 @@
     "Completed": false
   },
   {
+    "ID": 6,
+    "Name": "Deeper and Deeper",
+    "Description": "Reach the bottom of the planet!",
+    "Requirement": 70,
+    "CurrentCount": 70,
+    "ImagePath": "Achievements/deeper",
+    "Completed": true
+  },
+  {
     "ID": 10,
     "Name": "Get Drilled",
     "Description": "Break your first drill",

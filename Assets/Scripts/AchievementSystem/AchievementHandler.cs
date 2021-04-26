@@ -25,7 +25,22 @@ namespace AchievementSystem
             if (achievement.CurrentCount >= achievement.Requirement)
             {
                 achievement.Completed = true;
-                AchievementUIController.Instance.Show(achievement.Name, achievement.Description, achievement.ImagePath);
+                AchievementUIController.Instance?.Show(achievement.Name, achievement.Description, achievement.ImagePath);
+            }
+            
+            Save();
+        }
+        
+        public static void SetAchievementCounter(int achievementID, int count)
+        {
+            SerializedAchievement achievement = SerializedAchievements[achievementID];
+            if (achievement.Completed) return;
+            
+            achievement.CurrentCount = count;
+            if (achievement.CurrentCount >= achievement.Requirement)
+            {
+                achievement.Completed = true;
+                AchievementUIController.Instance?.Show(achievement.Name, achievement.Description, achievement.ImagePath);
             }
             
             Save();
