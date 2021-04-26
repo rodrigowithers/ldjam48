@@ -2,8 +2,10 @@
 using Tile;
 using System;
 using System.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using Logger = UI.Logger;
+using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -11,6 +13,13 @@ namespace Player
     {
         [Header("Required Components")]
         [SerializeField] private Rigidbody2D _body;
+
+        [SerializeField] private Animator _animator;
+
+        [Header("FMOD")]
+        [SerializeField] private FMODUnity.StudioEventEmitter BGM;
+        [SerializeField] private FMODUnity.StudioEventEmitter DrillSFX;
+        [SerializeField] private FMODUnity.StudioEventEmitter RockColliderSFX;
 
         [Header("Configuration")] 
         [SerializeField, Range(0, 90)] private float MaxTurningAngle = 60;
@@ -34,13 +43,15 @@ namespace Player
         
         private Collider2D[] _hits;
 
-        private Animator _animator;
         public Drill Drill;
 
         private float _drillParticlesCount;
         private float _turningAngle;
 
         private Vector2 _velocity;
+
+        private float _depth;
+        private float _drillHealth;
         
         public void ResetPlayer()
         {
@@ -48,6 +59,8 @@ namespace Player
             Drill.Tier = PlayerDatabase.Info.DrillTier;
             Drill.SetHealth();
 
+            _drillHealth = 1;
+            
             _turningAngle = 0;
             _broken = false;
             
@@ -76,8 +89,11 @@ namespace Player
 
             if (Input.GetKeyDown(KeyCode.W))
             {
-                if(!_moving)
+                if (!_moving)
+                {
+                    DrillSFX.Play();  
                     OnResumed?.Invoke();
+                }
                 
                 _moving = true;
             }
@@ -99,21 +115,42 @@ namespace Player
                 }
                 else
                 {
+                    DrillSFX.Play();  
+
                     _moving = true;
                     OnResumed?.Invoke();
                 }
             }
+
+            DrillSFX.SetParameter("DRILL INPUT", _moving ? 1 : 0);
         }
 
         private void HandleCollisions()
         {
             if (Drill.Health <= 0 || !_moving)
+            {
+                RockColliderSFX.SetParameter("DRILL INPUT", 0);
                 return;
+            }
             
             DebugExtension.DebugCircle(DrillPoint, Vector3.forward, Color.red, _drillRadius);
             
             var hits = Physics2D.OverlapCircleNonAlloc(DrillPoint, _drillRadius, _hits, _tileLayer);
+            if (hits > 0)
+            {
+                // Shake player
+                _animator.transform.localPosition = Random.insideUnitCircle * 0.05f;
+                
+                if(!RockColliderSFX.IsPlaying())
+                    RockColliderSFX.Play();
 
+                RockColliderSFX.SetParameter("DRILL INPUT", 1);
+            }
+            else
+            {
+                RockColliderSFX.SetParameter("DRILL INPUT", 0);
+            }
+            
             for (int i = 0; i < hits; i++)
             {
                 _drillParticlesCount += 0.1f;
@@ -162,6 +199,9 @@ namespace Player
         private async void OnDrillBrokenListener()
         {
             Logger.Instance.Log("Your drill broke");
+            
+            RockColliderSFX.Stop();
+            DrillSFX.SetParameter("DRILL INPUT", 0);
 
             _moving = false;
             _broken = true;
@@ -174,11 +214,6 @@ namespace Player
             GameController.Instance.SetGameState(GameController.GameState.Menu);
         }
         
-        private void Awake()
-        {
-            _animator = GetComponent<Animator>();
-        }
-
         private void Start()
         {
             _hits = new Collider2D[9];
@@ -196,10 +231,19 @@ namespace Player
 
         private void Update()
         {
+            _animator.transform.localPosition = Vector3.MoveTowards(_animator.transform.localPosition, Vector3.zero, 0.1f);
             AchievementSystem.AchievementHandler.SetAchievementCounter(6, (int) Mathf.Abs(transform.position.y));
 
             Shader.SetGlobalVector("_PlayerPosition", transform.position);
             Shader.SetGlobalFloat("_Radius", Mathf.Lerp(20, 3, Mathf.InverseLerp(7, -40, transform.position.y)));
+
+            _depth = Mathf.MoveTowards(_depth, Mathf.InverseLerp(5, -70, transform.position.y) * 100, 0.5f);
+            float drillHealth = Mathf.InverseLerp(0, Drill.TotalHealth, Drill.Health) * 100;
+
+            _drillHealth = Mathf.MoveTowards(_drillHealth, Mathf.InverseLerp(0, Drill.TotalHealth, Drill.Health), 0.001f);
+            
+            BGM.SetParameter("DEPTH", _depth);
+            BGM.SetParameter("Life", drillHealth);
             
             if(Input.GetKeyDown(KeyCode.Escape))
                 GameController.Instance.SetGameState(GameController.GameState.Menu);

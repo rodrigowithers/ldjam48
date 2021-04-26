@@ -54,7 +54,7 @@ namespace UI.Panels
                     info.GoldCount < shopItem.GoldPrice)
                 {
                     button.image.color = Color.gray;
-                    button.enabled = false;
+                    button.GetComponent<FMODUnity.StudioEventEmitter>().Event = "event:/UPGRADE UNAVAILABLE";
                 }
                 else
                 {

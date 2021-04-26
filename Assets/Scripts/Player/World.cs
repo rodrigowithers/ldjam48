@@ -2,6 +2,6 @@
 {
     public static class World
     {
-        public static int TotalDepth = -45;
+        public static int TotalDepth = -70;
     }
 }

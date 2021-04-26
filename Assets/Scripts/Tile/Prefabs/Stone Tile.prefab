@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 8385988162878918544}
   - component: {fileID: 8385988162878918551}
   - component: {fileID: 8385988162878918550}
-  - component: {fileID: 8385988162878918549}
+  - component: {fileID: -5747889109406872385}
   m_Layer: 8
   m_Name: Stone Tile
   m_TagString: Untagged
@@ -4855,7 +4855,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &8385988162878918549
+--- !u!114 &-5747889109406872385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4864,7 +4864,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8385988162878918545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 091d29868c1e417c80086cc7bb804838, type: 3}
+  m_Script: {fileID: 11500000, guid: c59bfb6acce04dfc86708c3bfaf3aab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 8385988162878918550}
