@@ -71,7 +71,9 @@ namespace UI.Panels
             ShopItem item = Shop.ShopItems.First(x => x.Id == id);
             
             // Check money
-            if (i.StoneCount < item.StonePrice || i.IronCount < item.IronPrice || i.GoldCount < item.GoldPrice)
+            if (i.StoneCount < item.StonePrice || 
+                i.IronCount < item.IronPrice || 
+                i.GoldCount < item.GoldPrice)
                 return;
 
             // Check if its the same drill we already have

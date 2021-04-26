@@ -27,11 +27,11 @@ public class GameController : MonoBehaviour
         switch (state)
         {
             case GameState.Shop:
-                OnShopState?.Invoke();
-                
                 ResourceStorage.Save();
                 ResourceStorage.Load();
                 
+                OnShopState?.Invoke();
+
                 Player.transform.position = new Vector3(1.94f, 7, 0);
                 Player.ResetPlayer();
                 TilemapCreator.Instance.Create();
