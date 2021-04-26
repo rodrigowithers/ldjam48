@@ -1,25 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9066186235606228820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/ROCK COLLIDER/DRILL INPUT
-  m_EditorClassIdentifier: 
-  Name: DRILL INPUT
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
 --- !u!114 &-7659409338458127546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +86,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -2065574446958558767}
+  - {fileID: 5396660382029425659}
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
@@ -145,7 +125,7 @@ MonoBehaviour:
   Path: FMOD Assets/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637550669271487501
+  lastModified: 637550276625690765
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -165,26 +145,6 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 100
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &-4508197315944688575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/DRILL/DRILL INPUT
-  m_EditorClassIdentifier: 
-  Name: DRILL INPUT
-  Min: 0
-  Max: 1
-  Default: 0
   ID:
     data1: 0
     data2: 0
@@ -209,26 +169,6 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
---- !u!114 &-4061159587652648595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/ROCK COLLIDER/DRILL INPUT
-  m_EditorClassIdentifier: 
-  Name: DRILL INPUT
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
 --- !u!114 &-3381595625079881449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,72 +189,12 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 602218374557993298}
-  - {fileID: -2052388633753346667}
+  - {fileID: 294617504753073808}
+  - {fileID: -5767622394477040738}
   MinDistance: 0
   MaxDistance: 0
   Length: 448000
 --- !u!114 &-2276775432813644754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/OST/DEPTH
-  m_EditorClassIdentifier: 
-  Name: DEPTH
-  Min: 0
-  Max: 100
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &-2097777144914241260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/OST/Life
-  m_EditorClassIdentifier: 
-  Name: Life
-  Min: 0
-  Max: 100
-  Default: 100
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &-2065574446958558767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/DRILL/DRILL INPUT
-  m_EditorClassIdentifier: 
-  Name: DRILL INPUT
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &-2052388633753346667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,46 +234,6 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
---- !u!114 &-2007078123808844187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/OST/DEPTH
-  m_EditorClassIdentifier: 
-  Name: DEPTH
-  Min: 0
-  Max: 100
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &-1573292315033725936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/OST/Life
-  m_EditorClassIdentifier: 
-  Name: Life
-  Min: 0
-  Max: 100
-  Default: 100
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
 --- !u!114 &-1524743594967288664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,49 +305,9 @@ MonoBehaviour:
   - {fileID: -5580945704628064644}
   StringsBanks:
   - {fileID: 6660776067005068768}
-  stringsBankWriteTime: 637550669271547398
+  stringsBankWriteTime: 637550276625690765
   cacheVersion: 6
---- !u!114 &94533369045362166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/OST/DEPTH
-  m_EditorClassIdentifier: 
-  Name: DEPTH
-  Min: 0
-  Max: 100
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
 --- !u!114 &294617504753073808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/OST/Life
-  m_EditorClassIdentifier: 
-  Name: Life
-  Min: 0
-  Max: 100
-  Default: 100
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
---- !u!114 &602218374557993298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -567,10 +367,10 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 5715400417635632803}
+  - {fileID: -6864015283294936792}
   MinDistance: 0
   MaxDistance: 0
-  Length: 4260
+  Length: 4250
 --- !u!114 &2177106034159580915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,26 +391,6 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
---- !u!114 &2328927802075721017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/DRILL/DRILL INPUT
-  m_EditorClassIdentifier: 
-  Name: DRILL INPUT
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
 --- !u!114 &2593066235743213592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,26 +454,6 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
---- !u!114 &5715400417635632803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/ROCK COLLIDER/DRILL INPUT
-  m_EditorClassIdentifier: 
-  Name: DRILL INPUT
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
 --- !u!114 &6660776067005068768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,7 +469,7 @@ MonoBehaviour:
   Path: FMOD Assets/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637550669271547398
+  lastModified: 637550276625690765
   LoadResult: 0
   FileSizes:
   - Name: Desktop

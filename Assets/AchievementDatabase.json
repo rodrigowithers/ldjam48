@@ -4,34 +4,34 @@
     "Name": "Stone Age",
     "Description": "Mine 100 blocks of stone",
     "Requirement": 100,
-    "CurrentCount": 100,
+    "CurrentCount": 26,
     "ImagePath": "Achievements/StoneAge",
-    "Completed": true
+    "Completed": false
   },
   {
     "ID": 1,
     "Name": "Stone Future",
     "Description": "Mine 1000 blocks of stone",
     "Requirement": 1000,
-    "CurrentCount": 1000,
+    "CurrentCount": 26,
     "ImagePath": "Achievements/Stone1k",
-    "Completed": true
+    "Completed": false
   },
   {
     "ID": 2,
     "Name": "The Irony",
     "Description": "Mine 100 blocks of iron",
     "Requirement": 100,
-    "CurrentCount": 100,
+    "CurrentCount": 2,
     "ImagePath": "Achievements/iron1",
-    "Completed": true
+    "Completed": false
   },
   {
     "ID": 3,
     "Name": "Folded 1k times!",
     "Description": "Mine 1000 blocks of iron",
     "Requirement": 1000,
-    "CurrentCount": 430,
+    "CurrentCount": 2,
     "ImagePath": "Achievements/iron2",
     "Completed": false
   },
@@ -40,16 +40,16 @@
     "Name": "Bling!",
     "Description": "Mine 1 block of gold",
     "Requirement": 1,
-    "CurrentCount": 1,
+    "CurrentCount": 0,
     "ImagePath": "Achievements/gold1",
-    "Completed": true
+    "Completed": false
   },
   {
     "ID": 5,
     "Name": "24k God",
     "Description": "Mine 480 blocks of gold",
     "Requirement": 480,
-    "CurrentCount": 119,
+    "CurrentCount": 0,
     "ImagePath": "Achievements/gold2",
     "Completed": false
   },
@@ -58,17 +58,17 @@
     "Name": "Deeper and Deeper",
     "Description": "Reach the bottom of the planet!",
     "Requirement": 70,
-    "CurrentCount": 70,
+    "CurrentCount": 3,
     "ImagePath": "Achievements/deeper",
-    "Completed": true
+    "Completed": false
   },
   {
     "ID": 10,
     "Name": "Get Drilled",
     "Description": "Break your first drill",
     "Requirement": 1,
-    "CurrentCount": 1,
+    "CurrentCount": 0,
     "ImagePath": "Achievements/brokenDrill",
-    "Completed": true
+    "Completed": false
   }
 ]
