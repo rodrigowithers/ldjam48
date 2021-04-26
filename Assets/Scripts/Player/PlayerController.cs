@@ -1,9 +1,10 @@
 ﻿using DTO;
 using Tile;
 using System;
-using System.Threading.Tasks;
-using DG.Tweening;
+using FMODUnity;
 using UnityEngine;
+using System.Threading.Tasks;
+
 using Logger = UI.Logger;
 using Random = UnityEngine.Random;
 
@@ -17,9 +18,8 @@ namespace Player
         [SerializeField] private Animator _animator;
 
         [Header("FMOD")]
-        [SerializeField] private FMODUnity.StudioEventEmitter BGM;
-        [SerializeField] private FMODUnity.StudioEventEmitter DrillSFX;
-        [SerializeField] private FMODUnity.StudioEventEmitter RockColliderSFX;
+        [SerializeField] private StudioEventEmitter DrillSFX;
+        [SerializeField] private StudioEventEmitter RockColliderSFX;
 
         [Header("Configuration")] 
         [SerializeField, Range(0, 90)] private float MaxTurningAngle = 60;
@@ -29,7 +29,8 @@ namespace Player
         [SerializeField] private LayerMask _tileLayer;
 
         public ParticleSystem DrillBit;
-    
+        private StudioEventEmitter BGM;
+
         private Vector2 DrillPoint => transform.position - transform.up * _drillOffset;
         
         public event Action OnPaused = () => {};
@@ -216,6 +217,7 @@ namespace Player
         
         private void Start()
         {
+            BGM = OSTObject.Instance?.GetComponent<StudioEventEmitter>();
             _hits = new Collider2D[9];
             
             ResetPlayer();
@@ -241,9 +243,12 @@ namespace Player
             float drillHealth = Mathf.InverseLerp(0, Drill.TotalHealth, Drill.Health) * 100;
 
             _drillHealth = Mathf.MoveTowards(_drillHealth, Mathf.InverseLerp(0, Drill.TotalHealth, Drill.Health), 0.001f);
-            
-            BGM.SetParameter("DEPTH", _depth);
-            BGM.SetParameter("Life", drillHealth);
+
+            if (BGM != null)
+            {
+                BGM.SetParameter("DEPTH", _depth);
+                BGM.SetParameter("Life", drillHealth);                
+            }
             
             if(Input.GetKeyDown(KeyCode.Escape))
                 GameController.Instance.SetGameState(GameController.GameState.Menu);

@@ -2,19 +2,22 @@
   {
     "TotalHealth": 50,
     "Health": 50,
-    "Strength": 4.0,
-    "Speed": 1.0
+    "Strength": 5.0,
+    "Speed": 1.0,
+    "Tier": 0
   },
   {
-    "TotalHealth": 150,
-    "Health": 150,
+    "TotalHealth": 120,
+    "Health": 120,
     "Strength": 7.0,
-    "Speed": 2.0
+    "Speed": 2.0,
+    "Tier": 0
   },
   {
-    "TotalHealth": 250,
-    "Health": 250,
-    "Strength": 7.0,
-    "Speed": 3.0
+    "TotalHealth": 200,
+    "Health": 200,
+    "Strength": 9.0,
+    "Speed": 3.0,
+    "Tier": 0
   }
 ]
