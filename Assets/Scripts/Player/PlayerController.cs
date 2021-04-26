@@ -153,6 +153,8 @@ namespace Player
 
             if (Drill.Health <= 0)
             {
+                AchievementSystem.AchievementHandler.IncreaseAchievementCounter(10);
+                
                 OnDrillBroken.Invoke();
             }
         }

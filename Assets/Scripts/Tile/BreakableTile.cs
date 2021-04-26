@@ -13,7 +13,6 @@ namespace Tile
 
         protected virtual void OnBreak()
         {
-            Player.ResourceStorage.Stone += 1;
             Destroy(_collider);
 
             transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.OutExpo);

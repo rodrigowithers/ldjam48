@@ -1,0 +1,65 @@
+[
+  {
+    "ID": 0,
+    "Name": "Stone Age",
+    "Description": "Mine 100 blocks of stone",
+    "Requirement": 100,
+    "CurrentCount": 59,
+    "ImagePath": "Achievements/StoneAge",
+    "Completed": false
+  },
+  {
+    "ID": 1,
+    "Name": "Stone Future",
+    "Description": "Mine 1000 blocks of stone",
+    "Requirement": 1000,
+    "CurrentCount": 59,
+    "ImagePath": "Achievements/Stone1k",
+    "Completed": false
+  },
+  {
+    "ID": 2,
+    "Name": "The Irony",
+    "Description": "Mine 100 blocks of iron",
+    "Requirement": 100,
+    "CurrentCount": 58,
+    "ImagePath": "Achievements/iron1",
+    "Completed": false
+  },
+  {
+    "ID": 3,
+    "Name": "Folded 1k times!",
+    "Description": "Mine 1000 blocks of iron",
+    "Requirement": 1000,
+    "CurrentCount": 58,
+    "ImagePath": "Achievements/iron2",
+    "Completed": false
+  },
+  {
+    "ID": 4,
+    "Name": "Bling!",
+    "Description": "Mine 1 block of gold",
+    "Requirement": 1,
+    "CurrentCount": 1,
+    "ImagePath": "Achievements/gold1",
+    "Completed": true
+  },
+  {
+    "ID": 5,
+    "Name": "24k God",
+    "Description": "Mine 480 blocks of gold",
+    "Requirement": 480,
+    "CurrentCount": 1,
+    "ImagePath": "Achievements/gold2",
+    "Completed": false
+  },
+  {
+    "ID": 10,
+    "Name": "Get Drilled",
+    "Description": "Break your first drill",
+    "Requirement": 1,
+    "CurrentCount": 0,
+    "ImagePath": "Achievements/brokenDrill",
+    "Completed": false
+  }
+]
