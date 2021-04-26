@@ -2,6 +2,10 @@
 using Newtonsoft.Json;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 namespace DTO
 {
     public class PlayerInfo
@@ -48,5 +52,23 @@ namespace DTO
         {
             Load();
         }
+        
+#if UNITY_EDITOR
+        [MenuItem("Databases/Clear Player")]
+        private static void Clear()
+        {
+            var json = File.ReadAllText(SavePath);
+            Info = JsonConvert.DeserializeObject<PlayerInfo>(json);
+
+            Info.DrillIdentifier = 0;
+            Info.DrillTier = 0;
+            Info.StoneCount = 0;
+            Info.IronCount = 0;
+            Info.GoldCount = 0;
+            
+            json = JsonConvert.SerializeObject(Info, Formatting.Indented);
+            File.WriteAllText(SavePath, json);
+        }
+#endif
     }
 }
