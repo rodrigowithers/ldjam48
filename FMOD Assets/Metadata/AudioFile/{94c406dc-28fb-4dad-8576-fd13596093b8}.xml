@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{94c406dc-28fb-4dad-8576-fd13596093b8}">
+		<property name="assetPath">
+			<value>OST/LOOP DARK 40 A 80%.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>128</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fda1bf93-6464-4d8f-a1fd-70bd50f87f3d}</destination>
+		</relationship>
+	</object>
+</objects>

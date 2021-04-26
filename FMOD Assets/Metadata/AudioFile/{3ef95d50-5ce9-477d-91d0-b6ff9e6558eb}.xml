@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{3ef95d50-5ce9-477d-91d0-b6ff9e6558eb}">
+		<property name="assetPath">
+			<value>OST/LOOP DARK CONSTANTE.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>192</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fda1bf93-6464-4d8f-a1fd-70bd50f87f3d}</destination>
+		</relationship>
+	</object>
+</objects>
