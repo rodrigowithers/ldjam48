@@ -48,10 +48,20 @@ namespace UI.Panels
                 }
 
                 var button = item.GetComponent<Button>();
+
+                bool maxLevel = false;
+                
+                // Check if its the same drill we already have
+                if (shopItem.Id == info.DrillIdentifier)
+                {
+                    if (info.DrillTier >= 5)
+                        maxLevel = true;
+                }
                 
                 if (info.StoneCount < shopItem.StonePrice || 
                     info.IronCount < shopItem.IronPrice ||
-                    info.GoldCount < shopItem.GoldPrice)
+                    info.GoldCount < shopItem.GoldPrice ||
+                    maxLevel)
                 {
                     button.image.color = Color.gray;
                     button.GetComponent<FMODUnity.StudioEventEmitter>().Event = "event:/UPGRADE UNAVAILABLE";
