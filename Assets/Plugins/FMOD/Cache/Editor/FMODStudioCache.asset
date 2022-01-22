@@ -42,7 +42,7 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-6516272402407987979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 5396660382029425659}
+  - {fileID: -3903366255622998958}
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
@@ -109,7 +109,7 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-5580945704628064644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   Path: FMOD Assets/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637550276625690765
+  lastModified: 637550132625690765
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -169,6 +169,46 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-4095379080853603504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/OST/Life
+  m_EditorClassIdentifier: 
+  Name: Life
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &-3903366255622998958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DRILL/DRILL INPUT
+  m_EditorClassIdentifier: 
+  Name: DRILL INPUT
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-3381595625079881449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,8 +229,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 294617504753073808}
-  - {fileID: -5767622394477040738}
+  - {fileID: -4095379080853603504}
+  - {fileID: 7691947058253915943}
   MinDistance: 0
   MaxDistance: 0
   Length: 448000
@@ -277,6 +317,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-396622422562210581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ROCK COLLIDER/DRILL INPUT
+  m_EditorClassIdentifier: 
+  Name: DRILL INPUT
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +365,7 @@ MonoBehaviour:
   - {fileID: -5580945704628064644}
   StringsBanks:
   - {fileID: 6660776067005068768}
-  stringsBankWriteTime: 637550276625690765
+  stringsBankWriteTime: 637550132625690765
   cacheVersion: 6
 --- !u!114 &294617504753073808
 MonoBehaviour:
@@ -326,7 +386,7 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &782139693975402187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +427,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -6864015283294936792}
+  - {fileID: -396622422562210581}
   MinDistance: 0
   MaxDistance: 0
   Length: 4250
@@ -453,7 +513,7 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &6660776067005068768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,9 +529,29 @@ MonoBehaviour:
   Path: FMOD Assets/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637550276625690765
+  lastModified: 637550132625690765
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 1144
+  Exists: 1
+--- !u!114 &7691947058253915943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/OST/DEPTH
+  m_EditorClassIdentifier: 
+  Name: DEPTH
+  Min: 0
+  Max: 100
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
   Exists: 1

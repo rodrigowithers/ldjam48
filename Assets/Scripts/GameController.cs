@@ -30,6 +30,11 @@ public class GameController : MonoBehaviour
                 ResourceStorage.Save();
                 ResourceStorage.Load();
                 
+                CanvasController.ShopPanel.SetActive(true);
+                
+                CanvasController.HUDPanel.SetActive(false);
+                CanvasController.MenuPanel.SetActive(false);
+                
                 OnShopState?.Invoke();
 
                 Player.transform.position = new Vector3(1.94f, 7, 0);
@@ -38,11 +43,6 @@ public class GameController : MonoBehaviour
                 
                 Player.gameObject.SetActive(false);
                 CameraController.Target = null;
-                
-                CanvasController.ShopPanel.SetActive(true);
-                
-                CanvasController.HUDPanel.SetActive(false);
-                CanvasController.MenuPanel.SetActive(false);
                 break;
             case GameState.Game:
                 

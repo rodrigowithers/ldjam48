@@ -20,7 +20,7 @@ namespace DTO
     
     public static class PlayerDatabase
     {
-        private static readonly string SavePath = Path.Combine(Application.dataPath, "player.json");
+        private static readonly string SavePath = Path.Combine(Application.persistentDataPath, "player.json");
 
         public static PlayerInfo Info;
 
@@ -35,13 +35,18 @@ namespace DTO
             Info = i;
 
             var json = JsonConvert.SerializeObject(Info, Formatting.Indented);
+            
+            Debug.Log($"json file saved at {SavePath}.");
             File.WriteAllText(SavePath, json);
         }
 
         private static void Load()
         {
             if (!File.Exists(SavePath))
+            {
+                Debug.Log("File doesnt exist, creating new Player json file.");
                 Save();
+            }
                 
             var json = File.ReadAllText(SavePath);
             Info = JsonConvert.DeserializeObject<PlayerInfo>(json);

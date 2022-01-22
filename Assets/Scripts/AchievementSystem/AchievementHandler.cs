@@ -14,7 +14,7 @@ namespace AchievementSystem
     {
         private static Dictionary<int, SerializedAchievement> SerializedAchievements { get; set; }
 
-        private static string AchievementDatabasePath => Path.Combine(Application.dataPath, "AchievementDatabase.json");
+        private static string AchievementDatabasePath => Path.Combine(Application.persistentDataPath, "AchievementDatabase.json");
         
         public static void IncreaseAchievementCounter(int achievementID)
         {
@@ -66,6 +66,12 @@ namespace AchievementSystem
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Load()
         {
+            if (!File.Exists(AchievementDatabasePath))
+            {
+                Debug.Log("[ Achievements ] Creating new Achievement Database file...");
+                CreateAchievementFile();
+            }
+            
             string json = File.ReadAllText(AchievementDatabasePath);
             List<SerializedAchievement> achievements = JsonConvert.DeserializeObject<List<SerializedAchievement>>(json);
 
@@ -75,6 +81,12 @@ namespace AchievementSystem
             {
                 SerializedAchievements.Add(achievement.ID, achievement);
             }
+        }
+
+        private static void CreateAchievementFile()
+        {
+            TextAsset achievements = Resources.Load<TextAsset>("AchievementDatabase");
+            File.WriteAllText(AchievementDatabasePath, achievements.text);
         }
 
         private static void Save()

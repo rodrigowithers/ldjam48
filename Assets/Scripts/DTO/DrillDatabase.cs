@@ -8,7 +8,7 @@ namespace DTO
 {
     public static class DrillDatabase
     {
-        private static readonly string SavePath = Path.Combine(Application.dataPath, "drills.json");
+        private static readonly string SavePath = Path.Combine(Application.persistentDataPath, "drills.json");
 
         public static List<Drill> Drills;
 

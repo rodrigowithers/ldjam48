@@ -1,6 +1,7 @@
 ﻿using DTO;
 using Tile;
 using System;
+using System.Collections;
 using FMODUnity;
 using UnityEngine;
 using System.Threading.Tasks;
@@ -28,6 +29,8 @@ namespace Player
 
         [SerializeField] private LayerMask _tileLayer;
 
+        public static PlayerController Instance { get; private set; }
+        
         public ParticleSystem DrillBit;
         private StudioEventEmitter BGM;
 
@@ -39,6 +42,8 @@ namespace Player
         public event Action OnDrillDamage = () => {};
 
         private float _movementRotation;
+        private float _addedRotation;
+        
         private bool _moving;
         private bool _broken;
         
@@ -53,6 +58,32 @@ namespace Player
 
         private float _depth;
         private float _drillHealth;
+        
+        public void ToggleMovement()
+        {
+            if (_moving)
+            {
+                _moving = false;
+                OnPaused?.Invoke();
+            }
+            else
+            {
+                DrillSFX.Play();  
+
+                _moving = true;
+                OnResumed?.Invoke();
+            }
+        }
+
+        public void BeginRotate(int dir)
+        {
+            _addedRotation = dir;
+        }
+
+        public void StopRotate()
+        {
+            _addedRotation = 0;
+        }
         
         public void ResetPlayer()
         {
@@ -109,18 +140,7 @@ namespace Player
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (_moving)
-                {
-                    _moving = false;
-                    OnPaused?.Invoke();
-                }
-                else
-                {
-                    DrillSFX.Play();  
-
-                    _moving = true;
-                    OnResumed?.Invoke();
-                }
+                ToggleMovement();
             }
 
             DrillSFX.SetParameter("DRILL INPUT", _moving ? 1 : 0);
@@ -197,8 +217,9 @@ namespace Player
             }
         }
 
-        private async void OnDrillBrokenListener()
+        private IEnumerator OnDrillBrokenListener()
         {
+            Debug.Log("[ Debug ] Player drill broke! Should open Broken Drill Dialog!");
             Logger.Instance.Log("Your drill broke");
             
             RockColliderSFX.Stop();
@@ -210,11 +231,17 @@ namespace Player
             StopAnimation();
             RecoilMovement();
 
-            await Task.Delay(1000);
+            yield return new WaitForSeconds(1);
             
+            Debug.Log("[ Debug ] Setting game state!");
             GameController.Instance.SetGameState(GameController.GameState.Menu);
         }
-        
+
+        private void Awake()
+        {
+            Instance = this;
+        }
+
         private void Start()
         {
             BGM = OSTObject.Instance?.GetComponent<StudioEventEmitter>();
@@ -227,7 +254,7 @@ namespace Player
             
             OnResumed += ResumeAnimation;
 
-            OnDrillBroken += OnDrillBrokenListener;
+            OnDrillBroken += () => { StartCoroutine(OnDrillBrokenListener()); };
             OnDrillDamage += OnDrillDamageListener;
         }
 
@@ -259,7 +286,7 @@ namespace Player
                 HandleCollisions();   
             }
 
-            _turningAngle = Mathf.Clamp(_turningAngle + _movementRotation * 0.7f, -MaxTurningAngle, MaxTurningAngle);                
+            _turningAngle = Mathf.Clamp(_turningAngle + (_movementRotation + _addedRotation) * 0.7f, -MaxTurningAngle, MaxTurningAngle);                
             transform.rotation = Quaternion.Euler(0,0,_turningAngle);
 
             if (_moving)

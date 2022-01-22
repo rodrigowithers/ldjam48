@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using TMPro;
 using DG.Tweening;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace UI
             _log.Enqueue(s + "\n");
         }
 
-        private async void UpdateLog()
+        private IEnumerator UpdateLog()
         {
             while (true)
             {
@@ -29,7 +30,7 @@ namespace UI
                     _text.DOText(_text.text + _log.Dequeue(), 0.15f);
                 }   
                 
-                await Task.Delay(150);
+                yield return new WaitForSeconds(0.15f);
             }
         }
 
@@ -47,7 +48,7 @@ namespace UI
         {
             GameController.Instance.OnShopState += Clear;
             
-            UpdateLog();
+            StartCoroutine(UpdateLog());
         }
     }
 }

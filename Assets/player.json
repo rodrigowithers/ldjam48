@@ -1,7 +1,7 @@
 {
-  "DrillIdentifier": 0,
-  "DrillTier": 0,
-  "StoneCount": 0,
-  "IronCount": 0,
-  "GoldCount": 0
+  "DrillIdentifier": 1,
+  "DrillTier": 1,
+  "StoneCount": 123,
+  "IronCount": 4,
+  "GoldCount": 3
 }

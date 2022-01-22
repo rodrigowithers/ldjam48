@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using DTO;
+﻿using DTO;
 using Player;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace UI.Panels
 {
@@ -16,7 +16,7 @@ namespace UI.Panels
 
         public Sprite[] Tiers;
         
-        private async void InstantiateShop()
+        private IEnumerator InstantiateShop()
         {
             for (int i = 0; i < ButtonParent.childCount; i++)
             {
@@ -71,7 +71,7 @@ namespace UI.Panels
                     button.onClick.AddListener(() => Buy(shopItem.Id));
                 }
 
-                await Task.Delay(100);
+                yield return new WaitForSeconds(0.1f);
             }
         }
         
@@ -119,7 +119,7 @@ namespace UI.Panels
 
         private void Start()
         {
-            GameController.Instance.OnShopState += InstantiateShop;
+            GameController.Instance.OnShopState += () => { StartCoroutine(InstantiateShop()); };
         }
     }
 }
